@@ -394,7 +394,7 @@ html, body {
 
 .portfolio-item-info {
     position: absolute;
-    top: 150px;
+    bottom: 10%;
     left: 0px;
     z-index: 999;
     opacity: 0;
@@ -406,7 +406,7 @@ html, body {
 }
 
 .portfolio-item:hover .portfolio-item-info {
-    left: 50px;
+    left: 10%;
     opacity: 1;
 }
 
