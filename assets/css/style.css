@@ -320,7 +320,7 @@ html, body {
 
 .section-services:before {
     content: '';
-    background: url(../img/services-bg.jpg) no-repeat fixed center / cover;
+    background: url(../img/gatorade-bg0.jpg) no-repeat fixed center / cover;
     width: 100%;
     height: 400px; 
     position: absolute;
@@ -333,7 +333,7 @@ html, body {
     width: 100%;
     height: 400px; 
     position: absolute;
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(0,0,0,0.5);
     top: 0;
     left: 0;
     z-index: 0;
@@ -486,7 +486,7 @@ html, body {
 
 /* Section: Counters */
 .section-counters {
-    background: url(../img/counters-bg.jpg) no-repeat fixed center / cover;
+    background: url(../img/gameday-bg.jpg) no-repeat fixed center / cover;
     width: 100%;
     padding: 100px 0;
     position: relative;
