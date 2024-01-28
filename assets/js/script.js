@@ -74,6 +74,7 @@ $(function() {
     function customFormatter(value, options) {
         value = value.toFixed(options.decimals);
         value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        value = value.concat('+'); // add a plus sign to end of each number
         return value;
     }
 
