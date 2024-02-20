@@ -497,6 +497,8 @@ html, body {
 
 .modal-header .close {
     position: absolute;
+    /*  so that icon is clickable over video controls on chrome  */
+    z-index: 255;
     right: 0;
     padding: 10px 11px;
     margin-top: 0;
@@ -567,6 +569,7 @@ a.close {
 video {
     width: 100%;
     height: 100%;
+    z-index: 0;
 }
 
 /* Section: Form*/
