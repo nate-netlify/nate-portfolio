@@ -3,29 +3,35 @@
 
 const observer = new MutationObserver((mutationList, observer) => {
     let modal = mutationList[0].target;
-    let video = modal.querySelector('video');
-    console.log("targetModal: ", modal);
+    let vDiv = modal.querySelector("div.vimeo");
+    let iframe = modal.querySelector("iframe");
+    iframe.click(); // trick chrome into thinking user interacted with it
+    let vPlayer = new Vimeo.Player(modal.querySelector("iframe"));
     // if user opened modal for first time
     if (modal.style["display"] === "block") {
-        video.dataset.user = 'play';
+        console.log("first open");
+        vDiv.dataset.user = "play";
     } else if (modal.style["display"] === "none") {
-        video.dataset.user = 'pause';
-        video.dataset.auto = "";
+        console.log("closed");
+        vDiv.dataset.user = "pause";
+        vDiv.dataset.auto = "";
     } // play or pause the video
-    if (video.dataset.user === "play" && video.dataset.auto !== "done") {
-        video.play();
-        video.dataset.auto = "done";
-    } else if (video.dataset.user === "play" && video.dataset.auto === "done") {
+    if (vDiv.dataset.user === "play" && vDiv.dataset.auto !== "done") {
+        console.log("resuming");
+        vPlayer.play();
+        vDiv.dataset.auto = "done";
+    } else if (vDiv.dataset.user === "play" && vDiv.dataset.auto === "done") {
         return;
     } else {
-        video.pause();
+        console.log("paused");
+        vPlayer.pause();
     }
 });
 
 var config = { attributes: true, childList: false, characterData: false };
 
 // add observer to all the relevant portfolio items
-let portfolioVideos = document.querySelectorAll('div.modal:has(video)');
+let portfolioVideos = document.querySelectorAll('div.modal:has(iframe)');
 
 for (const portfolioVideo of portfolioVideos) {
     observer.observe(portfolioVideo, config);
